@@ -1,22 +1,17 @@
-import * as Device from "expo-device";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, ScrollView } from "react-native";
+import { Link } from "expo-router";
+import { globalStyles  } from "@/styles/global";
+import HomeHeader from "@/components/HomeHeader"
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Welcome to LeanLog!</Text>
-      <Text>Running on: {Platform.OS}</Text>
-      <Text>Device Model: {Device.modelName}</Text>
-      <Text>Device Brand: {Device.brand}</Text>
-      <Text>Device OS Version: {Device.osVersion}</Text>
-    </View>
+    <ScrollView style={globalStyles.container}>
+      <Text style={globalStyles.title}>LeanLog</Text>
+      <HomeHeader />
+      <Link href='/meals' style={{ fontSize: 18, color: "#007bff"}}>
+        Go to Meals
+      </Link>
+    </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
